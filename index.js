@@ -239,7 +239,7 @@ run().catch(console.dir);
 process.on("SIGINT", async () => {
   console.log("\nShutting down server…");
   try {
-    await client.close();
+    // await client.close();
   } finally {
     process.exit(0);
   }
