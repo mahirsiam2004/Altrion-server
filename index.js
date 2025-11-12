@@ -9,6 +9,7 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
+
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@smart-deals.99va52p.mongodb.net/?appName=smart-deals`;
 
 const client = new MongoClient(uri, {
@@ -25,13 +26,13 @@ let enrollmentCollection;
 
 async function run() {
   try {
-    await client.connect();
+    // await client.connect();
 
     db = client.db("altrion-db");
     courseCollection = db.collection("courses");
     enrollmentCollection = db.collection("enrollments");
 
-    await client.db("admin").command({ ping: 1 });
+    // await client.db("admin").command({ ping: 1 });
     console.log("Successfully connected to MongoDB!");
 
     // Health check
